@@ -23,7 +23,7 @@ export const fetchUserAsync = createAsyncThunk<
     const params = new URLSearchParams();
     params.append('id', args.id);
     params.append('serial', args.serial);
-    const res = await axios.post<UserResponse>(`${API_URL ?? ''}/users`);
+    const res = await axios.post<UserResponse>(`${API_URL ?? ''}/users`, params);
     return res.data;
   } catch (err) {
     return rejectWithValue('エラーが発生しました');
